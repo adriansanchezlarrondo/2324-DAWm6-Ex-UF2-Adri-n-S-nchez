@@ -102,8 +102,33 @@ const conciertosRecientes = [
   }
 ];
 
+function pintaConciertos(datos){
+  const tbody = document.querySelector('#tbody')
 
+  let tabla = ''
 
+  if(datos == '' || datos == null) {
+    console.log('hola');
+    tbody.innerHTML = 'No hay conciertos que mostrar'
+  } else {
+    datos.forEach(item => {
+      tabla += 
+      `
+      <tr>
+        <td>${item.nombreGrupo}</td>
+        <td>${item.fecha}</td>
+        <td>${item.lugar.ciudad}</td>
+        <td>${item.lugar.pais}</td>
+        <td>${item.precioEntrada}</td>
+      </tr>
+      `
+    });
+  
+    tbody.innerHTML = tabla
+  }
+}
+
+pintaConciertos(conciertosRecientes)
 // pintaConciertos()
 
 
