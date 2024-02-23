@@ -108,7 +108,6 @@ function pintaConciertos(datos) {
   let tabla = ''
 
   if(datos == '' || datos == null) {
-    console.log('hola');
     tbody.innerHTML = 'No hay conciertos que mostrar'
   } else {
     datos.forEach(item => {
@@ -149,7 +148,7 @@ function buscaConcierto(datos, id) {
   return div
 }
 
-console.log(buscaConcierto(conciertosRecientes, 14))
+// console.log(buscaConcierto(conciertosRecientes, 14))
 document.querySelector('#infoConciertoId').innerHTML = buscaConcierto(conciertosRecientes, 22);
 
 
@@ -162,5 +161,7 @@ document.querySelector('#filtrar').addEventListener('click', (e) => {
 });
 
 function filtraConciertos(datos, ciudad) {
-  
+  let datosCiudad = datos.filter(data => data.lugar.ciudad === ciudad);
+
+  return datosCiudad
 }
